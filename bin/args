@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/args'
+
+# $ ./bin/args --config config/database.yml --verbose --version 5.1 --options 1 2 3 4 5
+# --config  : config/database.yml
+# --verbose : true
+# --verbose : 5.1
+# --options : ["1", "2", "3", "4", "5", "6", "--config"]
+
+puts "--config  : #{args :config}"
+puts "--verbose : #{args :verbose, as: :bool}"
+puts "--version : #{args :version, as: :float}"
+puts "--options : #{args :options, as: :array}"
